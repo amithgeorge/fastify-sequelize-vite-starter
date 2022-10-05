@@ -1,0 +1,28 @@
+{
+	"name": "fastify-vite-2",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev:server": "nodemon --watch server.js --watch server/ server.js",
+		"dev:client": "vite",
+		"dev:https": "concurrently --kill-others \"${CADDY_PATH:?} reverse-proxy --from localhost:8085 --to localhost:5173\" npm:dev",
+		"dev": "concurrently --kill-others npm:dev:server npm:dev:client",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prod": "NODE_ENV=production node server.js"
+	},
+	"dependencies": {
+		"@fastify/static": "^6.5.0",
+		"env-schema": "^5.1.0",
+		"fastify": "^4.7.0",
+		"preact": "^10.10.6"
+	},
+	"devDependencies": {
+		"@preact/preset-vite": "^2.3.0",
+		"concurrently": "^7.4.0",
+		"husky": "^8.0.1",
+		"nodemon": "^2.0.20",
+		"vite": "^3.1.0"
+	}
+}
