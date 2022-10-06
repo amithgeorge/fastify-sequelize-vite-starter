@@ -1,5 +1,5 @@
-[local]
-.ignores/.gitignore # includes any project specific ignores
+[inline]
+client/dist
 
 [github/gitignore]
 Node.gitignore
