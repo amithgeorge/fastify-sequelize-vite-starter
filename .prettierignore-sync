@@ -1,0 +1,12 @@
+[inline]
+package-lock.json
+
+
+# paste everything from .gitignore-sync till https://github.com/foray1010/ignore-sync/issues/597 is fixed
+[local]
+.ignores/.gitignore
+
+[github/gitignore]
+Node.gitignore
+Global/macOS.gitignore
+

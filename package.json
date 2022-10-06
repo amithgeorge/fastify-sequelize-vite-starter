@@ -8,9 +8,17 @@
 		"dev:client": "vite",
 		"dev:https": "concurrently --kill-others \"${CADDY_PATH:?} reverse-proxy --from localhost:8085 --to localhost:5173\" npm:dev",
 		"dev": "concurrently --kill-others npm:dev:server npm:dev:client",
+		"format:check": "prettier --ignore-unknown --check .",
+		"format:fix": "prettier --ignore-unknown --write .",
+		"lint:check": "eslint --ignore-path .prettierignore .",
+		"lint:fix": "eslint --ignore-path .prettierignore --fix .",
 		"build": "vite build",
 		"preview": "vite preview",
-		"prod": "NODE_ENV=production node server.js"
+		"prod": "NODE_ENV=production node server.js",
+		"prepare": "husky install && ignore-sync ."
+	},
+	"engines": {
+		"node": ">=16.17"
 	},
 	"dependencies": {
 		"@fastify/static": "^6.5.0",
@@ -21,8 +29,22 @@
 	"devDependencies": {
 		"@preact/preset-vite": "^2.3.0",
 		"concurrently": "^7.4.0",
+		"eslint": "^8.24.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^6.0.1",
 		"husky": "^8.0.1",
+		"ignore-sync": "^5.0.1",
+		"lint-staged": "^13.0.3",
 		"nodemon": "^2.0.20",
+		"prettier": "^2.7.1",
 		"vite": "^3.1.0"
+	},
+	"lint-staged": {
+		"!*.{js,jsx,mjs,cjs}": "prettier --ignore-unknown --write ",
+		"*.{js,jsx,mjs,cjs}": [
+			"eslint --ignore-path .prettierignore ",
+			"prettier --write "
+		]
 	}
 }

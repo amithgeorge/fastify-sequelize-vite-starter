@@ -8,11 +8,11 @@ export default (opts) => {
 	const app = Fastify(opts);
 
 	/* Your code here. Hello world example: */
-	app.get("/api/hello", async (request, reply) => {
+	app.get("/api/hello", async (_request, _reply) => {
 		return { hello: "world with reload!!" };
 	});
 
-	app.get("/api/other", async (request, reply) => {
+	app.get("/api/other", async (_request, _reply) => {
 		return { hello: "from other" };
 	});
 

@@ -3,6 +3,8 @@
 # https://github.com/foray1010/ignore-sync #
 ############################################
 
+package-lock.json
+
 client/dist
 
 # Logs

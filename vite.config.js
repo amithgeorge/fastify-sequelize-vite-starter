@@ -1,3 +1,5 @@
+/* eslint-disable node/no-unpublished-import */
+
 import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
 

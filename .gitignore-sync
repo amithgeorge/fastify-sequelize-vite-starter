@@ -1,0 +1,7 @@
+[local]
+.ignores/.gitignore # includes any project specific ignores
+
+[github/gitignore]
+Node.gitignore
+Global/macOS.gitignore
+
