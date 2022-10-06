@@ -1,24 +1,28 @@
 {
-	"extends": [
-		"eslint:recommended",
-		"plugin:node/recommended",
-		"plugin:promise/recommended",
-		"prettier"
-	],
-	"parserOptions": {
-		// Only ESLint 6.2.0 and later support ES2020.
-		"ecmaVersion": 2022
+	"extends": ["preact", "auto"],
+	"env": {
+		"node": true
 	},
 	"rules": {
+		"eslint-comments/disable-enable-pair": [
+			"error",
+			{ "allowWholeFile": true }
+		],
+
+		"import/extensions": ["warn", "always", { "ignorePackages": true }],
+		"import/prefer-default-export": "off",
+
 		"no-unused-vars": [
 			"error",
 			{ "argsIgnorePattern": "^_", "destructuredArrayIgnorePattern": "^_" }
 		],
+		"no-underscore-dangle": ["error", { "allow": ["__dirname"] }],
+		"no-console": "off",
 
 		"node/exports-style": ["error", "module.exports"],
-		"node/file-extension-in-import": ["error", "always"],
 		"node/no-process-env": "warn",
 		"node/no-sync": "warn",
+		"node/no-unpublished-import": "off",
 		"node/prefer-global/buffer": ["error", "always"],
 		"node/prefer-global/console": ["error", "always"],
 		"node/prefer-global/process": ["error", "always"],
@@ -28,5 +32,10 @@
 		"node/prefer-promises/fs": "error",
 
 		"promise/avoid-new": "warn"
+	},
+	"settings": {
+		"jest": {
+			"version": 28
+		}
 	}
 }

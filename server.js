@@ -1,9 +1,10 @@
 import envSchema from "env-schema";
+
 import fastify from "./server/app.js";
 
 const app = fastify({
-	pluginTimeout: 50000,
-	bodyLimit: 15485760,
+	pluginTimeout: 50_000,
+	bodyLimit: 15_485_760,
 });
 
 try {
@@ -24,7 +25,7 @@ try {
 
 	app.listen({ port: PORT, host: "0.0.0.0" });
 	console.log(`Server started on 0.0.0.0:${PORT}`);
-} catch (err) {
-	app.log.error(err);
-	process.exit(1);
+} catch (error) {
+	app.log.error(error);
+	throw error;
 }
