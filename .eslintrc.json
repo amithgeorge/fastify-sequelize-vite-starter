@@ -41,8 +41,8 @@
 		"import/resolver": {
 			"alias": {
 				"map": [
-					["#server", "./server/"],
-					["#client", "./client/src"]
+					["#server", "./app/server/"],
+					["#client", "./app/client/src"]
 				]
 			}
 		}

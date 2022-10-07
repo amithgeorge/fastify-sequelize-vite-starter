@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "vite build",
-		"dev:server": "nodemon --watch server.js --watch server/ server.js",
+		"dev:server": "nodemon --watch app/server.js --watch app/server/ app/server.js",
 		"dev:client": "vite",
 		"dev:https": "concurrently --kill-others \"${CADDY_PATH:?} reverse-proxy --from localhost:8085 --to localhost:5173\" npm:dev",
 		"dev": "concurrently --kill-others npm:dev:server npm:dev:client",
@@ -15,15 +15,17 @@
 		"lint:fix": "npm run lint:check -- --fix",
 		"prepare": "husky install && ignore-sync .",
 		"preview": "vite preview",
-		"prod": "NODE_ENV=production node server.js",
+		"prod:build": "NODE_ENV=production npm run build",
+		"prod:run": "NODE_ENV=production node app/server.js",
+		"prod:https": "concurrently --kill-others \"${CADDY_PATH:?} reverse-proxy --from localhost:8085 --to localhost:3000\" npm:prod:run",
 		"test:server": "vitest --dir test/fastify-server"
 	},
 	"engines": {
 		"node": ">=16.17"
 	},
 	"imports": {
-		"#server/": "./server/",
-		"#client/": "./client/src/"
+		"#server/*": "./app/server/*",
+		"#client/*": "./app/client/src/*"
 	},
 	"dependencies": {
 		"@fastify/static": "^6.5.0",

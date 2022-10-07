@@ -4,7 +4,11 @@ import preact from "@preact/preset-vite";
 import { defineConfig } from "vite";
 
 export const config = {
-	root: "./client", // we will use vite only for the client side code. server side code is untouched
+	root: "./app/client", // we will use vite only for the client side code. server side code is untouched
+	build: {
+		emptyOutDir: true,
+		outDir: "../../dist",
+	},
 	plugins: [preact()],
 	server: {
 		proxy: {
@@ -13,8 +17,8 @@ export const config = {
 	},
 	resolve: {
 		alias: {
-			"#server": `${new URL("server", import.meta.url).pathname}`,
-			"#client": `${new URL("client/src", import.meta.url).pathname}`,
+			"#server": `${new URL("app/server", import.meta.url).pathname}`,
+			"#client": `${new URL("app/client/src", import.meta.url).pathname}`,
 		},
 	},
 };
