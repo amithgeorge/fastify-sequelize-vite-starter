@@ -1,5 +1,7 @@
 [inline]
 client/dist
+data/*
+!data/.gitkeep
 
 [github/gitignore]
 Node.gitignore

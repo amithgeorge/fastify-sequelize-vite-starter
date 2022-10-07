@@ -6,6 +6,8 @@
 package-lock.json
 
 client/dist
+data/*
+!data/.gitkeep
 
 # Logs
 logs

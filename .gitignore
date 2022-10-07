@@ -4,6 +4,8 @@
 ############################################
 
 client/dist
+data/*
+!data/.gitkeep
 
 # Logs
 logs
