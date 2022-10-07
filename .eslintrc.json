@@ -20,6 +20,7 @@
 		"no-console": "off",
 
 		"node/exports-style": ["error", "module.exports"],
+		"node/no-missing-import": "off",
 		"node/no-process-env": "warn",
 		"node/no-sync": "warn",
 		"node/no-unpublished-import": "off",
@@ -36,6 +37,14 @@
 	"settings": {
 		"jest": {
 			"version": 28
+		},
+		"import/resolver": {
+			"alias": {
+				"map": [
+					["#server", "./server/"],
+					["#client", "./client/src"]
+				]
+			}
 		}
 	}
 }
