@@ -3,7 +3,7 @@
 # https://github.com/foray1010/ignore-sync #
 ############################################
 
-client/dist
+dist
 data/*
 !data/.gitkeep
 

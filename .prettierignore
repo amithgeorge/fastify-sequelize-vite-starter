@@ -5,7 +5,7 @@
 
 package-lock.json
 
-client/dist
+dist
 data/*
 !data/.gitkeep
 
